@@ -63,6 +63,10 @@ operator = liftM (Add . length)           (several '+')
 optimize :: AST -> AST
 optimize [] = []
 optimize (Loop []:xs) = optimize xs
+optimize (Loop xs:ys) = let optimizedContent = optimize xs
+                            in if optimizedContent == []
+                                  then optimize ys
+                                  else Loop optimizedContent:optimize ys
 optimize (Add m:Add n:xs) = if abs m == abs n && m /= n
                                    then Add (abs m):optimize xs
                                    else Add m:Add n:optimize xs
