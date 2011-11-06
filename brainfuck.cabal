@@ -1,0 +1,17 @@
+Name:          brainfuck
+Version:       0.1
+Synopsis:      A brainfuck interpreter written in Haskell
+Homepage:      http://github.com/DasIch/Brainfuck
+License:       BSD3
+Author:        Daniel Neuhäuser
+Maintainer:    dasdasich@gmail.com
+Copyright:     2011 by Daniel Neuhäuser
+Category:      Language
+Build-type:    Simple
+Cabal-version: >=1.2
+
+Executable brainfuck
+  Main-is: Brainfuck.hs
+  Build-depends: base
+                ,ListZipper >= 1.2.0.2
+                ,parsec     >= 3.1.1
